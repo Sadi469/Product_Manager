@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign in · Stockly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<div class="page">
+  <!-- Left brand panel -->
+  <section class="brand-panel">
+    <div class="brand-glow"></div>
+    <div class="brand-content">
+      <div class="brand-mark">
+        <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="white"/>
+          <path d="M2 17L12 22L22 17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M2 12L12 17L22 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+        </svg>
+        <span>Stockly</span>
+      </div>
+
+      <h1>Every product,<br>one clean shelf.</h1>
+      <p class="brand-sub">Track stock, prices, and quantities without the spreadsheet chaos. Built for CSE-223 — Database Management System.</p>
+
+      <div class="brand-stats">
+        <div class="stat-pill">
+          <span class="dot dot-amber"></span> Add products in seconds
+        </div>
+        <div class="stat-pill">
+          <span class="dot dot-teal"></span> Live stock at a glance
+        </div>
+        <div class="stat-pill">
+          <span class="dot dot-coral"></span> Edit or remove anytime
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Right login form -->
+  <section class="form-panel">
+    <div class="login-card">
+      <h2>Welcome back</h2>
+      <p class="form-sub">Sign in to manage your inventory.</p>
+
+      <form id="loginForm" autocomplete="off">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="admin" required>
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="••••••••" required>
+
+        <button type="submit" id="loginBtn">Sign in</button>
+        <p id="errorMsg" class="error-msg"></p>
+      </form>
+
+      <div class="hint-box">
+        Default login &nbsp;·&nbsp; <b>admin</b> / <b>admin123</b>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>

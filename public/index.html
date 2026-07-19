@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard · Stockly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <!-- Top bar -->
+  <header class="topbar">
+    <div class="brand-mark">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+        <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="#4F46E5"/>
+        <path d="M2 17L12 22L22 17" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M2 12L12 17L22 12" stroke="#7C3AED" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.6"/>
+      </svg>
+      <span>Stockly</span>
+    </div>
+    <div class="topbar-right">
+      <span id="welcomeText" class="welcome-text"></span>
+      <button id="logoutBtn" class="logout-btn">Log out</button>
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Stat cards -->
+    <section class="stats-grid">
+      <div class="stat-card grad-indigo">
+        <span class="stat-label">Total Products</span>
+        <span class="stat-value" id="statTotal">0</span>
+      </div>
+      <div class="stat-card grad-teal">
+        <span class="stat-label">Units in Stock</span>
+        <span class="stat-value" id="statUnits">0</span>
+      </div>
+      <div class="stat-card grad-amber">
+        <span class="stat-label">Inventory Value</span>
+        <span class="stat-value" id="statValue">৳0</span>
+      </div>
+      <div class="stat-card grad-coral">
+        <span class="stat-label">Low Stock (&lt;10)</span>
+        <span class="stat-value" id="statLow">0</span>
+      </div>
+    </section>
+
+    <!-- Toolbar -->
+    <section class="toolbar">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search products…">
+      </div>
+      <button id="addProductBtn" class="primary-btn">+ Add Product</button>
+    </section>
+
+    <!-- Product table -->
+    <section class="table-card">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="productTableBody">
+          <!-- rows injected by script.js -->
+        </tbody>
+      </table>
+      <p id="emptyState" class="empty-state" style="display:none;">No products yet. Click "Add Product" to get started.</p>
+    </section>
+
+  </main>
+</div>
+
+<!-- Add / Edit Modal -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <h3 id="modalTitle">Add Product</h3>
+    <form id="productForm">
+      <input type="hidden" id="productId">
+
+      <label for="name">Product Name</label>
+      <input type="text" id="name" placeholder="e.g. Wireless Mouse" required>
+
+      <label for="price">Price (৳)</label>
+      <input type="number" id="price" min="0" step="0.01" placeholder="0.00" required>
+
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" min="0" step="1" placeholder="0" required>
+
+      <div class="modal-actions">
+        <button type="button" id="cancelBtn" class="ghost-btn">Cancel</button>
+        <button type="submit" id="saveBtn" class="primary-btn">Save Product</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Delete Confirm Modal -->
+<div class="modal-overlay" id="deleteOverlay">
+  <div class="modal small">
+    <h3>Delete this product?</h3>
+    <p class="modal-sub">This action can't be undone.</p>
+    <div class="modal-actions">
+      <button id="cancelDeleteBtn" class="ghost-btn">Cancel</button>
+      <button id="confirmDeleteBtn" class="danger-btn">Delete</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
